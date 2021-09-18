@@ -216,6 +216,8 @@ function reverseString(str) {
         {
             const [cter1, nextDate] = getNextPalindromeDate(date);
             const [cter2, prevDate] = getPreviousPalindromeDate(date);
+
+            console.log(cter1,cter2);  // 54,219 for 19 sep 2021 // for 12nov cter1 and cter2 is 12 and 8
     
             if (cter1 > cter2)
              {            
