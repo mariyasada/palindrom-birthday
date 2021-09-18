@@ -223,7 +223,7 @@ function reverseString(str) {
             } 
             else 
             {
-            outputEl.innerText = `The nearest palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed by ${cter1} days and the past palindrome date is ${prevDate.day}-${prevDate.month}-${prevDate.year}, you missed by ${cter2} days.`;
+            outputEl.innerText = `The nearest palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed by ${cter1} days and The past palindrome date was ${prevDate.day}-${prevDate.month}-${prevDate.year}, you missed by ${cter2} days.`;
             }
         } 
          else 
