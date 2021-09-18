@@ -122,40 +122,29 @@ function reverseString(str) {
   
     var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   
-    if(month ===3){
-        if(isLeapYear(year)){
-            if( day < 1){
-                day=29;
-                month =2;
-            }
-        }else{
-            if(day < 1){
-                day =28;
-                month =2;
-            }
+    if (day < 1) { // date consider as 1 jan 1995    day= 1  // 
+         month--;      // month=12;
+    
+        if (month < 1) {    //month=1
+          
+          day = 31;          //day=31 month=12 year=1994
+          month = 12;
+          year--;
+  
+        } else if (month === 2)
+         {        
+          if (isLeapYear(year)) {
+            day = 29;
+          } 
+          else {
+            day = 28;
+          }
+        } 
+        else {
+          day = daysInMonth[month - 1];
         }
-    }
-    else if(month ===12 || month === 10 || month ===8|| month===7 ||month===5)
-    {
-        if(day<1){
-            day=30;
-            month--;
-        }
-
-    }
-    else if(month === 1)
-    {    if(day< 1){
-            day=31;
-            month=12;
-            year--;
-    } else{
-        if(day<1){
-            day=31;
-            month--;
-        }
-    }
-
-    }
+      }
+    
   
     return {
       day: day,
@@ -164,14 +153,13 @@ function reverseString(str) {
     };
   }
 
-  var date = {
-      day: 31,
-      month:12,
-    year:2020,
-  };
+//   var date={
+//       day:21,
+//       month:1,
+//       year:1995
+//   };
 
-//   console.log(getPreviousDate(date));
-
+//   console.log(getPreviousDate(date))
   
   function getPreviousPalindromeDate(date) {
     var previousDate = getPreviousDate(date);
@@ -188,6 +176,7 @@ function reverseString(str) {
         }
       }
       previousDate = getPreviousDate(previousDate);
+      console.log(previousDate);
     }
   }
   
@@ -196,7 +185,6 @@ function reverseString(str) {
   var outputEl = document.querySelector("#output");
 
     showButton.addEventListener("click", () => {
-        console.log("clicked")
         var birthdayString = birthdayInput.value;
     
         if (birthdayString !== "") 
@@ -227,9 +215,7 @@ function reverseString(str) {
         if (!isPalindrome)
         {
             const [cter1, nextDate] = getNextPalindromeDate(date);
-            // console.log(cter1,"counter1");
             const [cter2, prevDate] = getPreviousPalindromeDate(date);
-            // console.log(cter2,"counter2");
     
             if (cter1 > cter2)
              {            
@@ -237,7 +223,7 @@ function reverseString(str) {
             } 
             else 
             {
-            outputEl.innerText = `The nearest palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed by ${cter1} days.`;
+            outputEl.innerText = `The nearest palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, you missed by ${cter1} days and the past palindrome date is ${prevDate.day}-${prevDate.month}-${prevDate.year}, you missed by ${cter2} days.`;
             }
         } 
          else 
