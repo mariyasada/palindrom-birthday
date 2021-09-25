@@ -46,7 +46,7 @@ function reverseString(str) {
   
     for (var i = 0; i < dateFormatList.length; i++) {
       var result = isStringPalindrome(dateFormatList[i]);
-      palindromeList.push(result);
+      palindromeList.push(result);     // [true,false,false,true,false,true] this type of output
     }
     return palindromeList;
   }
@@ -122,25 +122,28 @@ function reverseString(str) {
   
     var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   
-    if (day < 1) { // date consider as 1 jan 1995    day= 1  // 
+    if (day < 1) { // date consider as 1 jan 1995    day= 0  // 
          month--;      // month=12;
     
-        if (month < 1) {    //month=1
+        if (month <= 1) {    //month=1
           
           day = 31;          //day=31 month=12 year=1994
           month = 12;
           year--;
   
-        } else if (month === 2)
+        }
+       else if (month === 2)
          {        
           if (isLeapYear(year)) {
             day = 29;
           } 
-          else {
+          else 
+          {
             day = 28;
           }
         } 
-        else {
+        else 
+        {
           day = daysInMonth[month - 1];
         }
       }
