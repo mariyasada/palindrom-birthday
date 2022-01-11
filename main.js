@@ -1,16 +1,16 @@
-function reverseString(str) {
+const reverseString = (str) => {
     var listOfCharacters = str.split("");
     var reversedListOfCharacter = listOfCharacters.reverse();
     var reversedString = reversedListOfCharacter.join("");
     return reversedString;
   }
   
-  function isStringPalindrome(str) {
+  const isStringPalindrome = (str)=> {
     var reversedString = reverseString(str);
     return str === reversedString;
   }
   
-  function convertDateToString(date) {
+  const convertDateToString = (date)=> {
     var dateInStr = { day: "", month: "", year: "" };
   
     if (date.day < 10) {
@@ -29,7 +29,7 @@ function reverseString(str) {
     return dateInStr;
   }
   
-  function getDateInAllFormats(date) {
+  const getDateInAllFormats = (date) => {
     var ddmmyyyy = date.day + date.month + date.year;
     var mmddyyyy = date.month + date.day + date.year;
     var yyyymmdd = date.year + date.month + date.day;
@@ -40,7 +40,7 @@ function reverseString(str) {
     return [ddmmyyyy, mmddyyyy, yyyymmdd, ddmmyy, mmddyy, yyddmm];
   }
   
-  function checkPalindromeForAllDateFormats(date) {
+  const checkPalindromeForAllDateFormats = (date) => {
     var dateFormatList = getDateInAllFormats(date);
     var palindromeList = [];
   
@@ -51,7 +51,7 @@ function reverseString(str) {
     return palindromeList;
   }
   
-  function isLeapYear(year) {
+  const isLeapYear = (year) => {
     if (year % 400 === 0) return true;  
     if (year % 100 === 0) return false;  
     if (year % 4 === 0) return true;
@@ -59,7 +59,7 @@ function reverseString(str) {
     return false;
   }
   
-  function getNextDate(date) {
+  const getNextDate = (date) => {
     var day = date.day + 1;
     var month = date.month;
     var year = date.year;
@@ -97,7 +97,7 @@ function reverseString(str) {
     };
   }
   
-  function getNextPalindromeDate(date) {
+  const getNextPalindromeDate = (date) => {
     var nextDate = getNextDate(date);
     var cter = 0;
   
@@ -115,7 +115,7 @@ function reverseString(str) {
     }
   }
   
-  function getPreviousDate(date) {
+  const getPreviousDate = (date) => {
     var day = date.day - 1;
     var month = date.month;
     var year = date.year;
@@ -164,7 +164,7 @@ function reverseString(str) {
 
 //   console.log(getPreviousDate(date))
   
-  function getPreviousPalindromeDate(date) {
+  const getPreviousPalindromeDate = (date) => {
     var previousDate = getPreviousDate(date);
     var cter = 0;
   
